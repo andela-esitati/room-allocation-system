@@ -24,8 +24,23 @@ class Office(Room):
 
     def assign_person(self, person):
         if self.capacity > len(self.occupants):
-            # check that the argument passed is an object of Staff or Fellow
+            # both fellows and staff havr offices
             if isinstance(person, Staff) or isinstance(person, Fellow):
                 self.occupants.append(person)
         return self.occupants
 
+
+class LivingSpace(Room):
+    '''this class contains info about fellow liiving spaces'''
+    capacity = 4
+    room_type = 'LivingSpace'
+
+    def is_full(self):
+        return len(self.occupants) == self.capacity
+
+    def assign_person(self, person):
+        if self.capacity > len(self.occupants):
+            # only fellow has living space
+            if isinstance(person, Fellow):
+                self.occupants.append(person)
+        return self.occupants
