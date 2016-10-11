@@ -42,3 +42,26 @@ class Person(object):
         self.office = office
         return self.office
 
+class Staff(Person):
+    '''This class models a staff'''
+    # a staff cannot have living space
+    def has_living_space(self):
+        return False
+
+class Fellow(Person):
+    '''This class models a fellow'''
+
+    living_space = None
+
+    def wants_living_space(self):
+        '''inquire if the fellow wants living space'''
+        return True if self.wants_accomodation else False
+
+    def assign_living_space(self,room):
+        '''assigns living space room to fellow'''
+        self.living_space = room
+        return self.living_space
+
+    def has_living_space(self):
+        '''check if fellow has living space'''
+        return True if self.wants_accomodation is True else False
