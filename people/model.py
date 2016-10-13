@@ -1,8 +1,3 @@
-class Role:
-    '''this class contains the role of a person ie 
-    either a fellow or a staff'''
-    category = {'fellow': Fellow, 'staff': Staff}
-
 
 class Person(object):
     '''this class models a person'''
@@ -15,7 +10,8 @@ class Person(object):
         '''create a fellow or staff object'''
         andelan = Role.category[role.lower()]
         # create object called person
-        person = andelan(name)
+        person = andelan()
+        person.name = name
         # all people have offices
         person.office = None
         # condition for if person is an object of class Staff
@@ -65,3 +61,12 @@ class Fellow(Person):
     def has_living_space(self):
         '''check if fellow has living space'''
         return True if self.wants_accomodation is True else False
+from model import Fellow,Staff
+
+
+class Role:
+    '''this class contains the role of a person ie 
+    either a fellow or a staff'''
+    category = {'fellow': Fellow, 'staff': Staff}
+
+
