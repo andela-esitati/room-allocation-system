@@ -70,3 +70,4 @@ class Role:
     category = {'fellow': Fellow, 'staff': Staff}
 
 
+# writing stuff just to test out
